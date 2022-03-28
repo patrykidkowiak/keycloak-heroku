@@ -33,9 +33,9 @@ file_env() {
 file_env 'KEYCLOAK_USER'
 file_env 'KEYCLOAK_PASSWORD'
 
-#if [ $KEYCLOAK_USER ] && [ $KEYCLOAK_PASSWORD ]; then
-#    /opt/jboss/keycloak/bin/add-user-keycloak.sh --user $KEYCLOAK_USER --password $KEYCLOAK_PASSWORD
-#fi
+if [ $KEYCLOAK_USER ] && [ $KEYCLOAK_PASSWORD ]; then
+   /opt/jboss/keycloak/bin/add-user-keycloak.sh --user $KEYCLOAK_USER --password $KEYCLOAK_PASSWORD
+fi
 
 ############
 # Hostname #
