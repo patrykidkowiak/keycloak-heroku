@@ -33,6 +33,7 @@ file_env() {
 file_env 'KEYCLOAK_USER'
 file_env 'KEYCLOAK_PASSWORD'
 
+${KEYCLOAK_HOME}/bin/standalone.sh -Djboss.as.management.blocking.timeout=3600
 if [ $KEYCLOAK_USER ] && [ $KEYCLOAK_PASSWORD ]; then
     /opt/jboss/keycloak/bin/add-user-keycloak.sh --user $KEYCLOAK_USER --password $KEYCLOAK_PASSWORD
 fi
@@ -174,5 +175,5 @@ fi
 # Start Keycloak #
 ##################
 
-exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
+exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Djboss.as.management.blocking.timeout=7200
 exit $?
